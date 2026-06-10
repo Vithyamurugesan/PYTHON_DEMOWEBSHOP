@@ -12,16 +12,16 @@ class SearchPage:
         self.__warningMessage=(By.CSS_SELECTOR,".warning")
 
     def get_search_box(self):
-        return self._search_box
+        return self.__searchBox
 
     def get_search_button(self):
-        return self._search_button
+        return self.__searchButton
 
     def get_search_result(self):
-        return self._search_result
+        return self.__searchResult
 
     def get_no_result_message(self):
-        return self._no_result_message
+        return self.__noResultMessage
 
     def get_warning_message(self):
-        return self._warning_message
+        return self.__warningMessage

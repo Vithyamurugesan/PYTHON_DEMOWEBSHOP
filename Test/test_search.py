@@ -2,23 +2,33 @@ import pytest
 from Actions.SearchAction import SearchAction
 
 
-@pytest.mark.usefixtures("driver")
+@pytest.mark.usefixtures("setup_and_teardown")
 class TestSearch:
 
     def test_valid_search(self):
 
         search = SearchAction(self.driver)
 
-        search.search_product("computer")
-        search.click_search()
+        search.searchProduct("computer")
+        search.clickSearch()
 
-        assert search.verify_search_redirect(), "User is not redirected to search results page"
+        assert search.verifySearchRedirect()
 
     def test_invalid_search(self):
 
         search = SearchAction(self.driver)
 
-        search.search_product("xyz123invalid")
-        search.click_search()
+        search.searchProduct("xyz123invalid")
+        search.clickSearch()
 
-        assert search.verify_no_product_message(), "No product message is not displayed"
+        assert search.verify_no_product_message(),"No product message is not displayed"
+    
+
+    def test_search_without_keyword(self):
+
+        search = SearchAction(self.driver)
+        search.clickSearch()
+
+        assert search.is_alert_present(),"Warning message is not displayed"
+
+        search.accept_alert()
