@@ -1,6 +1,7 @@
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.support.select import Select
 
 class BaseActions:
 
@@ -54,3 +55,7 @@ class BaseActions:
 
     def take_screenshot(self, file_name):
         self.driver.save_screenshot(file_name)
+
+    def select_dropdown(self,locator,text):
+        select= Select(self.find(locator))
+        select.select_by_visible_text(text)
