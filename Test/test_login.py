@@ -1,15 +1,26 @@
 import pytest
 from Actions.LoginActions import LoginActions
 from Utilities.excelReader import get_data
-
+from Configuration.configReader import ReadConfig
 login_data = get_data("TestData/loginData.xlsx", "login")
 recovery_data = get_data("TestData/loginData.xlsx", "recovery")
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestLogin:
 
+    def test_valid_login(self):
+
+        actions = LoginActions(self.driver)
+
+        actions.click_login_link()
+        actions.enter_email(ReadConfig.get_email())
+        actions.enter_password(ReadConfig.get_password())
+
+        actions.click_login_button()
+
+        assert actions.get_user_account_name() is not None
     @pytest.mark.parametrize("email,password,type", login_data)
-    def test_login(self, email, password, type):
+    def test_invalid_login(self, email, password, type):
 
         actions = LoginActions(self.driver)
 
