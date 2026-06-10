@@ -3,7 +3,7 @@ from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.action_chains import ActionChains
 from selenium.webdriver.support.select import Select
 
-class BaseActions:
+class BaseAction:
 
     def __init__(self, driver):
         self.driver=driver
