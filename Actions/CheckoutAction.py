@@ -35,6 +35,15 @@ class checkoutAction(BaseAction):
 
     def shippingText(self):
         return self.get_text(self.checkout.get_shipping_text())
+    
+    def guest_checkout(self):
+        self.js_click(self.checkout.get_guest_checkout())
+    
+    def checkout_Text(self):
+        return self.get_text(self.checkout.get_checkoutText())
+
+    def registrion_click(self):
+        self.js_click(self.checkout.get_registration())
 
 
 
