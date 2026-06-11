@@ -4,80 +4,35 @@ class RegisterPage:
 
     def __init__(self):
 
-        self.__registerLink = (
-            By.XPATH,
-            "//div[@class='header-links']/descendant::a[contains(@class,'ico-register')]"
-        )
+        self.__registerLink = ( By.XPATH,"//div[@class='header-links']/descendant::a[contains(@class,'ico-register')]")
 
-        self.__firstNameField = (
-            By.XPATH,
-            "//label[text()='First name:']/following-sibling::input"
-        )
+        self.__firstNameField = (By.XPATH,"//label[text()='First name:']/following-sibling::input")
 
-        self.__lastNameField = (
-            By.XPATH,
-            "//label[text()='Last name:']/following-sibling::input"
-        )
+        self.__lastNameField = ( By.XPATH,"//label[text()='Last name:']/following-sibling::input")
 
-        self.__emailField = (
-            By.XPATH,
-            "//label[text()='Email:']/following-sibling::input"
-        )
+        self.__emailField = (By.XPATH,"//label[text()='Email:']/following-sibling::input")
 
-        self.__passwordField = (
-            By.XPATH,
-            "//label[text()='Password:']/following-sibling::input"
-        )
+        self.__passwordField = (By.XPATH,"//label[text()='Password:']/following-sibling::input")
 
-        self.__confirmPasswordField = (
-            By.XPATH,
-            "//label[text()='Confirm password:']/following-sibling::input"
-        )
+        self.__confirmPasswordField = (By.XPATH,"//label[text()='Confirm password:']/following-sibling::input")
 
-        self.__registerButton = (
-            By.XPATH,
-            "//div[@class='buttons']/child::input[@id='register-button']"
-        )
+        self.__registerButton = (By.XPATH, "//div[@class='buttons']/child::input[@id='register-button']")
 
-        self.__continueButton = (
-            By.XPATH,
-            "//div[@class='buttons']/child::input[@value='Continue']"
-        )
+        self.__continueButton = (By.XPATH, "//div[@class='buttons']/child::input[@value='Continue']")
 
-        self.__registrationSuccessMessage = (
-            By.XPATH,
-            "//div[@class='result']"
-        )
+        self.__registrationSuccessMessage = (By.XPATH,"//div[@class='result']")
 
-        self.__existingEmailError = (
-            By.XPATH,
-            "//div[@class='validation-summary-errors']/descendant::li"
-        )
+        self.__existingEmailError = (By.XPATH,"//div[@class='validation-summary-errors']/descendant::li")
 
-        self.__firstNameError = (
-            By.XPATH,
-            "//input[@id='FirstName']/following::span[@for='FirstName'][1]"
-        )
+        self.__firstNameError = (By.XPATH,"//input[@id='FirstName']/following::span[@for='FirstName'][1]")
 
-        self.__lastNameError = (
-            By.XPATH,
-            "//input[@id='LastName']/following::span[@for='LastName'][1]"
-        )
+        self.__lastNameError = (By.XPATH,"//input[@id='LastName']/following::span[@for='LastName'][1]")
 
-        self.__emailError = (
-            By.XPATH,
-            "//input[@id='Email']/following::span[@for='Email'][1]"
-        )
+        self.__emailError = (By.XPATH,"//input[@id='Email']/following::span[@for='Email'][1]")
 
-        self.__passwordError = (
-            By.XPATH,
-            "//input[@id='Password']/following::span[@for='Password'][1]"
-        )
+        self.__passwordError = ( By.XPATH,"//input[@id='Password']/following::span[@for='Password'][1]")
 
-        self.__confirmPasswordError = (
-            By.XPATH,
-            "//input[@id='ConfirmPassword']/following::span[@for='ConfirmPassword'][1]"
-        )
+        self.__confirmPasswordError = ( By.XPATH,"//input[@id='ConfirmPassword']/following::span[@for='ConfirmPassword'][1]" )
 
     def get_register_link(self):
         return self.__registerLink

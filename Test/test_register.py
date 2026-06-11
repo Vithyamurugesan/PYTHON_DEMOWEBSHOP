@@ -3,17 +3,10 @@ from Utilities.excelReader import get_data
 
 class TestRegistration:
 
-    def test_register_user(
-            self,
-            setup_and_teardown
-    ):
+    def test_register_user(self,setup_and_teardown):
 
         register = RegisterAction(self.driver)
-
-        data = get_data(
-            "TestData/TestData.xlsx",
-            "Register"
-        )
+        data = get_data("TestData/TestData.xlsx","Register")
 
         row = data[0]
 
