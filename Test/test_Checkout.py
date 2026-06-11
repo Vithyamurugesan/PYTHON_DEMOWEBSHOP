@@ -1,14 +1,28 @@
 from selenium import webdriver
 import time
 from Actions.CheckoutAction import checkoutAction
+import pytest
+from Actions.LoginActions import LoginActions
+from Utilities.excelReader import get_data
+from Configuration.configReader import ReadConfig
 
 class TestCheckout:
     
+    
+    @pytest.mark.usefixtures("setup_and_teardown")
     def test_Checkout_RegisterUser(self):
-        driver = webdriver.Chrome()
-        driver.maximize_window()
-        driver.get("https://demowebshop.tricentis.com/onepagecheckout")
+        actions = LoginActions(self.driver)
 
-        checkout=checkoutAction(driver)
+        actions.click_login_link()
+        actions.enter_email(ReadConfig.get_email())
+        actions.enter_password(ReadConfig.get_password())
+
+        actions.click_login_button()
+
+        assert actions.get_user_account_name() is not None
+        # Dummy function Stub needed cart Module 
+        
+        # Cart()
+        checkout=checkoutAction(self.driver)
         checkout.form_fill()
         time.sleep(10)

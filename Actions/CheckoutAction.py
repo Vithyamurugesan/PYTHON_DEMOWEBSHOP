@@ -15,7 +15,7 @@ class checkoutAction(BaseActions):
 
     def form_fill(self):
         # Dummy function Stub needed Login Module and cart Module 
-        # Login()
+        
         # Cart()
         self.send_keys(self.checkout.get_bill_first_name(),"Jeeva")
         self.send_keys(self.checkout.get_bill_last_name(),"Pranesh")
