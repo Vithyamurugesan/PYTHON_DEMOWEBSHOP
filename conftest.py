@@ -5,7 +5,6 @@ import os
 from datetime import datetime
 import allure
 
-
 @pytest.fixture()
 def setup_and_teardown(request):
 
