@@ -22,3 +22,18 @@ class ReadConfig:
         config = configparser.ConfigParser()
         config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
         return config.get("browser", "browser")
+
+    def get_invalid_coupon_msg():
+        config = configparser.ConfigParser()
+        config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
+        return config.get("cart info", "invalid_coupon_msg")
+ 
+    def get_empty_cart_msg():
+        config = configparser.ConfigParser()
+        config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
+        return config.get("cart info", "empty_cart_msg")
+ 
+    def get_updated_quantity():
+        config = configparser.ConfigParser()
+        config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
+        return config.get("cart info", "updated_quantity")

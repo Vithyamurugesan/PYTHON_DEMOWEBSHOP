@@ -2,8 +2,8 @@ import pytest
 from Actions.LoginActions import LoginActions
 from Utilities.excelReader import get_data
 from Configuration.configReader import ReadConfig
-login_data = get_data("TestData/loginData.xlsx", "login")
-recovery_data = get_data("TestData/loginData.xlsx", "recovery")
+login_data = get_data("TestData/TestData.xlsx", "Login")
+recovery_data = get_data("TestData/TestData.xlsx", "Recovery")
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestLogin:
