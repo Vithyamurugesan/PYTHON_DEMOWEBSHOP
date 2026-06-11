@@ -1,0 +1,14 @@
+testcase,product
+addWishlist,Health Book
+addWishlist,Blue and green Sneaker
+addWishlist,Fiction EX
+
+removeWishlist,Health Book
+removeWishlist,Fiction EX
+
+wishlistToCart,Health Book
+wishlistToCart,Blue and green Sneaker
+
+displayWishlist,Health Book
+displayWishlist,Black & White Diamond Heart
+displayWishlist,Blue and green Sneaker
