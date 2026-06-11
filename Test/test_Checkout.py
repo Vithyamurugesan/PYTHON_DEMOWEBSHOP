@@ -24,6 +24,8 @@ class TestCheckout:
         cart.open_books_page()
         cart.open_computing_book_page()
         cart.add_to_cart()
+        cart.open_shopping_cart()
+        cart.Click_checkout()
         time.sleep(10)
         # Cart()
 

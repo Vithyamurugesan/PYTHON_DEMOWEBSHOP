@@ -1,12 +1,12 @@
 
 
-from Actions.BaseAction import BaseActions
+from Actions.BaseAction import BaseAction
 from Pages.CheckoutPage import CheckoutPage
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.support.wait import WebDriverWait
 
 
-class checkoutAction(BaseActions):
+class checkoutAction(BaseAction):
     checkout=CheckoutPage()
 
     def __init__(self,driver):
