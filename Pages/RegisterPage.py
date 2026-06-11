@@ -1,6 +1,6 @@
 from selenium.webdriver.common.by import By
 
-class RegistrationPage:
+class RegisterPage:
 
     def __init__(self):
 

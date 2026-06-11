@@ -3,16 +3,16 @@ import time
 from selenium.webdriver.support.wait import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-from Pages.RegisterPage import RegistrationPage
+from Pages.RegisterPage import RegisterPage
 from Utilities.excelReader import get_data
 
 
-class RegistrationActions:
+class RegisterAction:
 
     def __init__(self, driver):
 
         self.driver = driver
-        self.page = RegistrationPage()
+        self.page = RegisterPage()
 
     def click_register_link(self):
 
