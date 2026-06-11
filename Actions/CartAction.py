@@ -5,7 +5,7 @@ from selenium.webdriver.support import expected_conditions as EC
 
 from Actions.BaseAction import BaseAction
 from Pages.CartPage import CartPage
-from utilities.excelReader import get_data
+from Utilities.excelReader import get_data
 from Configuration.configReader import ReadConfig
 
 
@@ -72,3 +72,7 @@ class CartAction(BaseAction):
     def verify_products_displayed(self):
         products = self.driver.find_elements(*self.cart_page.get_product_list())
         return len(products) > 0
+    
+    def Click_checkout(self):
+        self.click(self.cart_page.get_checkbox())
+        self.click(self.cart_page.get_click_checkout())

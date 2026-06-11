@@ -12,6 +12,8 @@ class CartPage:
         self.__productList = (By.XPATH, "//table/descendant::tbody/child::tr/child::td[@class='product']")
         self.__subtotal = (By.XPATH, "//span[contains(@class,'product-price')]")
         self.__emptyCartMsg = (By.CSS_SELECTOR, ".order-summary-content")
+        self.__checkBox=(By.XPATH,"//input[@id='termsofservice']")
+        self.__checkutBTN=(By.ID,"checkout")
 
     def get_books(self):
         return self.__books
@@ -36,3 +38,9 @@ class CartPage:
 
     def get_empty_cart_msg(self):
         return self.__emptyCartMsg
+    
+    def get_checkbox(self):
+        return self.__checkBox
+    
+    def get_click_checkout(self):
+        return self.__checkutBTN
