@@ -5,6 +5,7 @@ import pytest
 from Actions.LoginActions import LoginActions
 from Utilities.excelReader import get_data
 from Configuration.configReader import ReadConfig
+from Actions.CartAction import CartAction
 
 class TestCheckout:
     
@@ -19,7 +20,15 @@ class TestCheckout:
         actions.click_login_button()
         assert actions.get_user_account_name() is not None
         # Dummy function Stub needed cart Module 
+        cart = CartAction(self.driver)
+        cart.open_books_page()
+        cart.open_computing_book_page()
+        cart.add_to_cart()
+        cart.open_shopping_cart()
+        cart.Click_checkout()
+        time.sleep(10)
         # Cart()
+
         checkout=checkoutAction(self.driver)
         checkout.form_fill()
         time.sleep(10)

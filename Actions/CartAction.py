@@ -72,3 +72,7 @@ class CartAction(BaseAction):
     def verify_products_displayed(self):
         products = self.driver.find_elements(*self.cart_page.get_product_list())
         return len(products) > 0
+    
+    def Click_checkout(self):
+        self.click(self.cart_page.get_checkbox())
+        self.click(self.cart_page.get_click_checkout())
