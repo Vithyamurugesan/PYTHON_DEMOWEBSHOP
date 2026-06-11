@@ -1,24 +1,27 @@
 import pytest
 from Actions.SearchAction import SearchAction
-
+from Utilities import excelReader
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestSearch:
 
-    def test_valid_search(self):
+    @pytest.mark.parametrize("product", excelReader.get_data("TestData/TestData.xlsx","ValidSearchProducts"))
+    def test_valid_search(self, product):
 
         search = SearchAction(self.driver)
 
-        search.searchProduct("computer")
+        search.searchProduct(product)
         search.clickSearch()
 
         assert search.verifySearchRedirect()
 
-    def test_invalid_search(self):
+
+    @pytest.mark.parametrize("product", excelReader.get_data("TestData/TestData.xlsx","InvalidSearchProducts"))
+    def test_invalid_search(self, product):
 
         search = SearchAction(self.driver)
 
-        search.searchProduct("xyz123invalid")
+        search.searchProduct(product)
         search.clickSearch()
 
         assert search.verify_no_product_message(),"No product message is not displayed"
