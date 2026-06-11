@@ -14,6 +14,14 @@ class CartPage:
         self.__emptyCartMsg = (By.CSS_SELECTOR, ".order-summary-content")
         self.__checkBox=(By.XPATH,"//input[@id='termsofservice']")
         self.__checkutBTN=(By.ID,"checkout")
+        self.__couponBox = (By.NAME, "discountcouponcode")
+        self.__couponButton = (By.XPATH, "//input[@name='discountcouponcode']/following-sibling::input")
+        self.__giftCardBox = (By.NAME, "giftcardcouponcode")
+        self.__giftCardButton = (By.XPATH, "//input[@name='giftcardcouponcode']/following-sibling::input")
+        self.__message = (By.XPATH, "//div[@class='message']")
+        self.__quantityBox = (By.CSS_SELECTOR, "input.qty-input")
+        self.__updateCartButton = (By.XPATH, "//input[@name='updatecart']")
+        self.__removeCheckBox = (By.XPATH, "//input[@name='removefromcart']")
 
     def get_books(self):
         return self.__books
@@ -44,3 +52,27 @@ class CartPage:
     
     def get_click_checkout(self):
         return self.__checkutBTN
+
+    def get_coupon_box(self):
+        return self.__couponBox
+ 
+    def get_coupon_button(self):
+        return self.__couponButton
+ 
+    def get_gift_card_box(self):
+        return self.__giftCardBox
+ 
+    def get_gift_card_button(self):
+        return self.__giftCardButton
+ 
+    def get_message(self):
+        return self.__message
+ 
+    def get_quantity_box(self):
+        return self.__quantityBox
+ 
+    def get_update_cart_button(self):
+        return self.__updateCartButton
+ 
+    def get_remove_check_box(self):
+        return self.__removeCheckBox
