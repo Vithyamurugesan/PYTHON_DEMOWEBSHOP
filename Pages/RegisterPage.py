@@ -6,42 +6,42 @@ class RegisterPage:
 
         self.__registerLink = (
             By.XPATH,
-            "//a[contains(@class,'ico-register')]"
+            "//div[@class='header-links']/descendant::a[contains(@class,'ico-register')]"
         )
 
         self.__firstNameField = (
             By.XPATH,
-            "//label[text()='First name:']/following::input[@id='FirstName']"
+            "//label[text()='First name:']/following-sibling::input"
         )
 
         self.__lastNameField = (
             By.XPATH,
-            "//label[text()='Last name:']/following::input[@id='LastName']"
+            "//label[text()='Last name:']/following-sibling::input"
         )
 
         self.__emailField = (
             By.XPATH,
-            "//label[text()='Email:']/following::input[@id='Email']"
+            "//label[text()='Email:']/following-sibling::input"
         )
 
         self.__passwordField = (
             By.XPATH,
-            "//label[text()='Password:']/following::input[@id='Password']"
+            "//label[text()='Password:']/following-sibling::input"
         )
 
         self.__confirmPasswordField = (
             By.XPATH,
-            "//label[text()='Confirm password:']/following::input[@id='ConfirmPassword']"
+            "//label[text()='Confirm password:']/following-sibling::input"
         )
 
         self.__registerButton = (
             By.XPATH,
-            "//div[@class='buttons']/descendant::input[@id='register-button']"
+            "//div[@class='buttons']/child::input[@id='register-button']"
         )
 
         self.__continueButton = (
             By.XPATH,
-            "//div[@class='buttons']/descendant::input[@value='Continue']"
+            "//div[@class='buttons']/child::input[@value='Continue']"
         )
 
         self.__registrationSuccessMessage = (
@@ -56,27 +56,27 @@ class RegisterPage:
 
         self.__firstNameError = (
             By.XPATH,
-            "//span[@for='FirstName']"
+            "//input[@id='FirstName']/following::span[@for='FirstName'][1]"
         )
 
         self.__lastNameError = (
             By.XPATH,
-            "//span[@for='LastName']"
+            "//input[@id='LastName']/following::span[@for='LastName'][1]"
         )
 
         self.__emailError = (
             By.XPATH,
-            "//span[@for='Email']"
+            "//input[@id='Email']/following::span[@for='Email'][1]"
         )
 
         self.__passwordError = (
             By.XPATH,
-            "//span[@for='Password']"
+            "//input[@id='Password']/following::span[@for='Password'][1]"
         )
 
         self.__confirmPasswordError = (
             By.XPATH,
-            "//span[@for='ConfirmPassword']"
+            "//input[@id='ConfirmPassword']/following::span[@for='ConfirmPassword'][1]"
         )
 
     def get_register_link(self):
