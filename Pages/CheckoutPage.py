@@ -4,7 +4,7 @@ class CheckoutPage:
 
     def __init__(self):
 
-        self.__existAddress=(By.XPATH,"//div[@class='inputs']//descendant::select[@id='billing-address-select']")
+        self.__existAddress=(By.ID,"billing-address-select")
         self.__newAddress=(By.XPATH,"//select[@id='billing-address-select']/child::option[text()='New Address']")
 
         self.__billFirstName=(By.XPATH,"//label[@for='BillingNewAddress_FirstName']/following-sibling::input")
@@ -20,7 +20,8 @@ class CheckoutPage:
         self.__billNumber=(By.XPATH,"//label[@for='BillingNewAddress_PhoneNumber']/following-sibling::input")
         self.__billFax=(By.XPATH,"//label[@for='BillingNewAddress_FaxNumber']/following-sibling::input")
         self.__billContinue=(By.XPATH,"//div[@id='billing-buttons-container']//descendant::input")
-
+        self.__shippingText=(By.XPATH,"//label[text()='Select a shipping address from your address book or enter a new address.']")
+        self.__wrongEmail=(By.XPATH,"//span[@class='field-validation-error']/parent::div")
     def get_exist_address(self):
         return self.__existAddress
 
