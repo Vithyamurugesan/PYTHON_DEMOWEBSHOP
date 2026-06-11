@@ -1,6 +1,6 @@
 import pytest
 from Actions.CartAction import CartAction
-from utilities.excelReader import get_data
+from Utilities.excelReader import get_data
 
 
 @pytest.mark.usefixtures("setup_and_teardown")
