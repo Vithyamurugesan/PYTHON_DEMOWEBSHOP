@@ -44,15 +44,13 @@ class CartAction(BaseAction):
 
         for row in products:
             product_name = row[0]
-            self.driver.get(base_url)
+            self.open_url(base_url)
 
             self.send_keys(search_box, product_name)
             self.click(search_btn)
 
-            wait = WebDriverWait(self.driver, 10)
             product_link = (By.PARTIAL_LINK_TEXT, product_name)
-            wait.until(EC.presence_of_element_located(product_link))
-            self.driver.find_element(*product_link).click()
+            self.click(product_link)
 
             self.wait_for_clickable(self.cart_page.get_add_to_cart_button())
             self.click(self.cart_page.get_add_to_cart_button())
@@ -62,61 +60,60 @@ class CartAction(BaseAction):
         self.click(self.cart_page.get_shopping_cart())
 
     def verify_products_displayed(self):
-        products = self.driver.find_elements(*self.cart_page.get_product_list())
+        products = self.find_all(self.cart_page.get_product_list())
         return len(products) > 0
-    
-    def Click_checkout(self):
+
+    def click_checkout(self):
         self.click(self.cart_page.get_checkbox())
         self.click(self.cart_page.get_click_checkout())
 
     def verify_subtotal_displayed(self):
         return self.wait_for_visible(self.cart_page.get_subtotal()).is_displayed()
- 
+
     def open_empty_cart(self):
-        self.driver.get(ReadConfig.get_base_url() + "cart")
- 
+        self.open_url(ReadConfig.get_base_url() + "cart")
+
     def get_empty_cart_message(self):
         try:
             return self.get_text(self.cart_page.get_empty_cart_msg()).strip()
         except Exception as e:
             print(f"Empty cart message not found: {e}")
             return ""
- 
+
     def enter_coupon_code(self, code):
         self.send_keys(self.cart_page.get_coupon_box(), code)
- 
+
     def click_apply_coupon(self):
         self.click(self.cart_page.get_coupon_button())
- 
+
     def enter_gift_card_code(self, code):
         self.wait_for_visible(self.cart_page.get_gift_card_box())
         self.send_keys(self.cart_page.get_gift_card_box(), code)
- 
+
     def click_apply_gift_card(self):
         self.wait_for_clickable(self.cart_page.get_gift_card_button())
         self.click(self.cart_page.get_gift_card_button())
- 
+
     def get_validation_message(self):
         return self.get_text(self.cart_page.get_message())
- 
+
     def update_quantity(self, quantity):
-        self.wait_for_visible(self.cart_page.get_quantity_box()).clear()
+        self.find(self.cart_page.get_quantity_box()).clear()
         self.send_keys(self.cart_page.get_quantity_box(), quantity)
- 
+
     def click_update_shopping_cart(self):
         self.click(self.cart_page.get_update_cart_button())
- 
+
     def verify_updated_quantity(self, expected_qty):
-        actual_qty = self.wait_for_visible(self.cart_page.get_quantity_box()).get_attribute("value")
+        actual_qty = self.find(self.cart_page.get_quantity_box()).get_attribute("value")
         return actual_qty == expected_qty
- 
+
     def remove_product(self):
         self.click(self.cart_page.get_remove_check_box())
- 
+
     def verify_removed_product(self):
         try:
-            return "Your Shopping Cart is empty!" in self.get_text(self.cart_page.get_empty_cart_msg())
+            return ReadConfig.get_empty_cart_msg() in self.get_text(self.cart_page.get_empty_cart_msg())
         except Exception as e:
             print(f"Removed product validation failed: {e}")
             return False
- 
