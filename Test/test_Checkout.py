@@ -16,12 +16,9 @@ class TestCheckout:
         actions.click_login_link()
         actions.enter_email(ReadConfig.get_email())
         actions.enter_password(ReadConfig.get_password())
-
         actions.click_login_button()
-
         assert actions.get_user_account_name() is not None
         # Dummy function Stub needed cart Module 
-        
         # Cart()
         checkout=checkoutAction(self.driver)
         checkout.form_fill()
