@@ -14,7 +14,7 @@ from Actions.RegisterAction import RegisterAction
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestCheckout:
 
-    @pytest.mark.Jeeva
+    #@pytest.mark.Jeeva
     @pytest.mark.order(1)
     def test_checkout_withRegestion(self):
 
@@ -27,8 +27,28 @@ class TestCheckout:
 
         checkout = checkoutAction(self.driver)
         checkout.registrion_click()
+        register = RegisterAction(self.driver)
+        data = get_data("TestData/TestData.xlsx","Register")
 
-    @pytest.mark.Jeeva
+        row = data[0]
+
+        register.click_register_link()
+
+        register.enter_first_name(row[0])
+
+        register.enter_last_name(row[1])
+
+        register.enter_email(row[2])
+
+        register.enter_password(str(row[3]))
+
+        register.enter_confirm_password(str(row[4]))
+
+        register.click_register_button()
+
+        assert register.get_success_message() == "Your registration completed"
+
+    #@pytest.mark.Jeeva
     @pytest.mark.order(2)
     def test_checkout_withlogin(self):
 
@@ -50,8 +70,9 @@ class TestCheckout:
         act = checkout.checkout_Text()
         print(act)
 
-    @pytest.mark.Jeeva
+    #@pytest.mark.Jeeva
     @pytest.mark.order(3)
+    
     def test_checkout_withGuest(self):
 
         cart = CartAction(self.driver)
@@ -72,7 +93,11 @@ class TestCheckout:
 
     @pytest.mark.Jeeva
     @pytest.mark.order(4)
-    def test_Checkout_fill_form(self):
+    @pytest.mark.parametrize("Firstname,Lastname\
+            ,Email,Company,Country,City,Address1,Address2,\
+            postalcode,Phonenumber,Faxnumber", get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\TestData.xlsx","billingForm"))
+    def test_Checkout_fill_form(self,Firstname,Lastname,Email,Company,Country,City,Address1,Address2,\
+                  postalcode,Phonenumber,Faxnumber):
 
         actions = LoginActions(self.driver)
 
@@ -91,7 +116,9 @@ class TestCheckout:
         cart.click_checkout()
 
         checkout = checkoutAction(self.driver)
-        checkout.form_fill()
+        checkout.form_fill(Firstname,Lastname,Email,Company,\
+                        Country,City,Address1,Address2,\
+                  postalcode,Phonenumber,Faxnumber)
 
         time.sleep(5)
 
