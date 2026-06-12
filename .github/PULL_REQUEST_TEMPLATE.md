@@ -12,7 +12,7 @@
 
 ## Team Information
 
-* **Team Lead:** @TAMILKUMAR0027
+* **Team Lead:** @Vithyamurugesan
 * **Reviewer(s):**
 * **Approver(s):**
 
@@ -163,5 +163,5 @@ Special instructions for reviewers:
 
 ## Final Approval
 
-* [ ] Reviewed by Team Lead (@TAMILKUMAR0027)
+* [ ] Reviewed by Team Lead (@Vithyamurugesan)
 * [ ] Ready for Merge
