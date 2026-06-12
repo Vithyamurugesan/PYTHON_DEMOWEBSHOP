@@ -2,7 +2,7 @@ import pytest
 from Actions.WishlistAction import WishlistAction
 from Utilities.CsvReader import CsvReader
 
-
+@pytest.mark.Vetri
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestWishlist:
 

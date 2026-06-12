@@ -2,6 +2,7 @@ import pytest
 from Actions.SearchAction import SearchAction
 from Utilities import excelReader
 
+@pytest.mark.Vetri
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestSearch:
 

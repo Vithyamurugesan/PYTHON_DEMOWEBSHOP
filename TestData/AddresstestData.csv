@@ -1,0 +1,6 @@
+testcase,first_name,last_name,email,company,country,state,city,address1,address2,postal_code,phone,fax
+addAddress,John,Doe,john.doe@test.com,TestCorp,United States,New York,New York City,123 Main St,Apt 4B,10001,1234567890,
+addAddress,Jane,Smith,jane.smith@test.com,,United States,California,Los Angeles,456 Oak Ave,,90001,9876543210,
+missingRequired,,Smith,missing.first@test.com,,,,,,,,,
+missingRequired,John,,missing.last@test.com,,,,,,,,,
+verifyAddress,Alice,Brown,alice.brown@test.com,BrownCo,United States,Texas,Houston,999 River Rd,Suite 5,77001,7778889999,
