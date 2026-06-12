@@ -32,3 +32,9 @@ class RegisterAction(BaseAction):
 
     def get_success_message(self):
         return self.get_text(self.registerPage.get_success_message())
+    
+    def enter_normal_email(self, email):
+        self.send_keys(self.registerPage.get_email(),email)
+
+    def get_email_error(self):
+        return self.get_text(self.registerPage.get_email_error())
