@@ -1,7 +1,7 @@
 import pytest
 from Actions.ProductDetailAction import ProductDetailAction
 from Utilities.CsvReader import CsvReader
-from Configuration.configReader import ReadConfig
+from Utilities.configReader import ReadConfig
 
 PRODUCT_CSV = "TestData/productDetailData.csv"
 
