@@ -1,4 +1,5 @@
 import pytest
+from selenium.webdriver.common.by import By
 from selenium import webdriver
 from Utilities.configReader import ReadConfig
 import os
@@ -8,9 +9,19 @@ import allure
 @pytest.fixture()
 def setup_and_teardown(request):
 
-    driver = webdriver.Chrome()
+    options = webdriver.ChromeOptions()
+    options.add_argument("--headless")
+    options.add_argument("--disable-gpu")
+    options.add_argument("--window-size=1920,1080")
+
+    driver=webdriver.Chrome(options=options)
     driver.maximize_window()
     driver.get(ReadConfig.get_base_url())
+
+    driver.find_element(By.LINK_TEXT, "Log in").click()
+    driver.find_element(By.ID, "Email").send_keys(ReadConfig.get_email())
+    driver.find_element(By.ID, "Password").send_keys(ReadConfig.get_password())
+    driver.find_element(By.CSS_SELECTOR, "input.button-1.login-button").click()
 
     request.cls.driver = driver
 
@@ -18,6 +29,23 @@ def setup_and_teardown(request):
 
     driver.quit()
 
+# @pytest.fixture()
+# def setup_and_teardown(request):
+
+#     options=webdriver.ChromeOptions()
+#     options.add_argument("--headless")
+#     options.add_argument("--disable-gpu")
+#     options.add_argument("--window-size=1920,1080")
+
+#     driver=webdriver.Chrome(options=options)
+#     driver.maximize_window()
+#     driver.get(ReadConfig.get_base_url())
+
+#     request.cls.driver = driver
+
+#     yield
+
+#     driver.quit()
 
 @pytest.hookimpl(hookwrapper=True)
 def pytest_runtest_makereport(item, call):

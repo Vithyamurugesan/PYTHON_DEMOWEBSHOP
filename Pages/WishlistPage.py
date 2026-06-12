@@ -15,7 +15,6 @@ class WishlistPage:
         self.__addToCartButton=(By.NAME,"addtocartbutton")
         self.__shoppingCartLink=(By.LINK_TEXT,"Shopping cart")
         self.__cartProduct=(By.XPATH,"//td[@class='product']/a")
-
     
     def get_addToWishlistButton(self):
         return self.__addToWishlistButton

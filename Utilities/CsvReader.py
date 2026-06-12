@@ -35,3 +35,29 @@ class CsvReader:
                     data.append(row["product"])
 
         return data
+
+    @staticmethod
+    def get_address_data(file_path, testcase):
+        data = []
+
+        with open(CsvReader._resolve_path(file_path), newline="", encoding="utf-8") as file:
+            reader = csv.DictReader(file)
+
+            for row in reader:
+                if row["testcase"] == testcase:
+                    data.append((
+                        row["first_name"],
+                        row["last_name"],
+                        row["email"],
+                        row["company"],
+                        row["country"],
+                        row["state"],
+                        row["city"],
+                        row["address1"],
+                        row["address2"],
+                        row["postal_code"],
+                        row["phone"],
+                        row["fax"]
+                    ))
+
+        return data
