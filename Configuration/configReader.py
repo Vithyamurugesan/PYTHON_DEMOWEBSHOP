@@ -37,3 +37,13 @@ class ReadConfig:
         config = configparser.ConfigParser()
         config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
         return config.get("cart info", "updated_quantity")
+
+    def get_availability_label():
+        config = configparser.ConfigParser()
+        config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
+        return config.get("product detail info", "availability_label")
+ 
+    def get_invalid_qty_msg():
+        config = configparser.ConfigParser()
+        config.read(os.path.join(os.path.dirname(__file__), "config.ini"))
+        return config.get("product detail info", "invalid_qty_msg")
