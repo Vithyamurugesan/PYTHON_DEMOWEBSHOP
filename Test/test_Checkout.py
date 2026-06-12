@@ -6,6 +6,7 @@ from Actions.CheckoutAction import checkoutAction
 import pytest
 from Actions.LoginActions import LoginActions
 from Utilities.excelReader import get_data
+from Utilities.CsvReader import CsvReader
 from Utilities.configReader import ReadConfig
 from Actions.CartAction import CartAction
 from Actions.RegisterAction import RegisterAction
@@ -134,7 +135,7 @@ class TestCheckout:
     @pytest.mark.order(5)
     @pytest.mark.parametrize("Firstname,Lastname\
             ,Company,Country,City,Address1,Address2,\
-            postalcode,Phonenumber,Faxnumber", get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\TestData.xlsx","Invalid billingForm"))
+            postalcode,Phonenumber,Faxnumber", CsvReader.get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\CheckoutTestData.csv"))
     def test_Checkout_Invalid_fill_form(self,Firstname,Lastname,Company,Country,City,Address1,Address2,\
                   postalcode,Phonenumber,Faxnumber):
 
@@ -155,6 +156,10 @@ class TestCheckout:
         cart.click_checkout()
 
         checkout = checkoutAction(self.driver)
+        print("Firstname =", Firstname)
+        print("Lastname =", Lastname)
+        print("Company =", Company)
+        print("Country =", Country)
         checkout.invalid_form_fill(Firstname,Lastname,Company,\
                         Country,City,Address1,Address2,\
                   postalcode,Phonenumber,Faxnumber)

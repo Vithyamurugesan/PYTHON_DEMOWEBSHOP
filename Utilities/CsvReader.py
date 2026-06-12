@@ -13,10 +13,19 @@ class CsvReader:
 
     @staticmethod
     def get_data(file_path):
+
         data = []
 
-        with open(CsvReader._resolve_path(file_path), mode="r", newline="", encoding="utf-8") as file:
-            reader = csv.DictReader(file)
+        with open(
+            CsvReader._resolve_path(file_path),
+            mode="r",
+            newline="",
+            encoding="utf-8"
+        ) as file:
+
+            reader = csv.reader(file)
+
+            next(reader)  # Skip header
 
             for row in reader:
                 data.append(row)
@@ -25,9 +34,15 @@ class CsvReader:
 
     @staticmethod
     def get_wishlist_data(file_path, testcase):
+
         data = []
 
-        with open(CsvReader._resolve_path(file_path), newline="", encoding="utf-8") as file:
+        with open(
+            CsvReader._resolve_path(file_path),
+            newline="",
+            encoding="utf-8"
+        ) as file:
+
             reader = csv.DictReader(file)
 
             for row in reader:
