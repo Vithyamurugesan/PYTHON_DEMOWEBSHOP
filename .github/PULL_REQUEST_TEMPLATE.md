@@ -1,38 +1,27 @@
-# Pull Request Details
+# Pull Request
 
-## PR Information
+## PR Details
 
-* **PR Number:** #
-* **Author:**
-* **Created Date:**
-* **Branch Name:**
-* **Target Branch:** main
-
----
-
-## Team Information
-
-* **Team Lead:** @Vithyamurugesan
-* **Reviewer(s):**
-* **Approver(s):**
-
----
-
-## Related Issue
-
-Fixes #
-
-Closes #
+| Field         | Details |
+| ------------- | ------- |
+| PR Number     |         |
+| PR Title      |         |
+| Author        |         |
+| Date          |         |
+| Branch Name   |         |
+| Target Branch |         |
+| Module        |         |
+| Reviewer(s)   |         |
 
 ---
 
 ## Summary
 
-Provide a brief summary of the changes introduced by this pull request.
+Provide a brief summary of the changes introduced in this pull request.
 
 ---
 
-## Detailed Changes
+## Changes Included
 
 ### Added
 
@@ -52,116 +41,105 @@ Provide a brief summary of the changes introduced by this pull request.
 
 ---
 
-## Type of Change
+## Feature Coverage
 
-* [ ] Bug Fix
-* [ ] New Feature
-* [ ] Enhancement
-* [ ] Refactoring
-* [ ] Performance Improvement
-* [ ] Test Automation
-* [ ] CI/CD Changes
-* [ ] Documentation Update
-* [ ] Dependency Upgrade
+*
 
 ---
 
-## Testing Performed
+## Scenario Coverage
 
-### Pytest Execution
+*
 
-* [ ] All tests passed
-* [ ] Smoke suite passed
-* [ ] Sanity suite passed
-* [ ] Regression suite passed
-* [ ] E2E suite passed
-* [ ] Negative test scenarios verified
+---
 
-### Browsers Tested
+## Files Changed
 
-* [ ] Chrome
-* [ ] Firefox
-* [ ] Headless Chrome
-* [ ] Headless Firefox
+### Added Files
+
+*
+
+### Modified Files
+
+*
+
+### Removed Files
+
+*
+
+---
+
+##  Test Execution Validation
+
+### PyTest Execution
+
+* [ ] Test Cases Executed Successfully
+* [ ] Smoke Suite Passed
+* [ ] Sanity Suite Passed
+* [ ] Regression Suite Passed
+* [ ] E2E Suite Passed
+
+### Report Validation
+
+* [ ] HTML Report Generated
+* [ ] JUnit XML Generated
+* [ ] Screenshots Captured
+* [ ] Logs Generated Successfully
 
 ---
 
 ## Evidence
 
-Attach screenshots, logs, videos, reports, or execution results if applicable.
+Attach:
+
+* [ ] Jenkins Build Screenshot
+* [ ] HTML Report Screenshot
+* [ ] Console Output Screenshot
+* [ ] Test Execution Results
 
 ---
 
-## Configuration Changes
+##  Code Review Checklist
 
-* [ ] config.ini modified
-* [ ] pytest.ini modified
-* [ ] requirements.txt updated
-* [ ] Environment variables added
-* [ ] No configuration changes
+### Framework Standards
 
----
-
-## Impact Analysis
-
-Affected Modules:
-
-* [ ]
-* [ ]
-* [ ]
-
-Potential Risks:
-
-* Low
-* Medium
-* High
-
-Rollback Plan:
-
-*
-
----
-
-## Checklist
+* [ ] POM Structure Followed
+* [ ] Reusable Methods Used
+* [ ] No Hardcoded Values
+* [ ] Proper Locator Strategy Used
+* [ ] Logging Added
+* [ ] Exception Handling Added
 
 ### Code Quality
 
-* [ ] Code follows project standards
-* [ ] No hardcoded values
-* [ ] Logging added where required
-* [ ] Exception handling implemented
-* [ ] Unused imports removed
-* [ ] PEP8 guidelines followed
+* [ ] Naming Conventions Followed
+* [ ] Unused Imports Removed
+* [ ] Clean and Readable Code
+* [ ] Existing Functionality Not Impacted
 
-### Testing
+## Test Execution Summary
 
-* [ ] Test cases added/updated
-* [ ] Existing tests are passing
-* [ ] Local execution verified
-
-### Documentation
-
-* [ ] README updated
-* [ ] Comments added where necessary
-* [ ] Documentation updated
-
-### CI/CD
-
-* [ ] GitHub Actions passed
-* [ ] Build succeeded
-* [ ] No merge conflicts
+| Metric           | Result                     |
+| ---------------- | -------------------------- |
+| Total Test Cases |                            |
+| Passed           |                            |
+| Failed           |                            |
+| Skipped          |                            |
+| Pass Percentage  |                            |
+| Execution Status | Pass / Partial Pass / Fail |
 
 ---
 
 ## Reviewer Notes
 
-Special instructions for reviewers:
+Special instructions or important points for reviewers:
 
 *
 
 ---
 
-## Final Approval
+## Final Status
 
-* [ ] Reviewed by Team Lead (@Vithyamurugesan)
-* [ ] Ready for Merge
+* [ ] Reviewed
+* [ ] Approved
+* [ ] Ready For Merge
