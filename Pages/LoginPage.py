@@ -51,3 +51,4 @@ class LoginPage:
 
     def get_login_error_message(self):
         return self.__login_error_message
+    
