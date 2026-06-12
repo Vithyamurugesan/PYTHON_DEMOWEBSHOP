@@ -28,7 +28,6 @@ class LoginActions(BaseAction):
     def get_login_error_message(self):
         return self.get_text(self.page.get_login_error_message())
 
-
     def click_forgot_password(self):
         self.click(self.page.get_forgot_password_link())
 
