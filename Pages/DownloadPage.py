@@ -7,7 +7,7 @@ class DownloadPage:
 
         self.__download_product_link = (By.XPATH,"(//div[@class='listbox']/descendant::a[@class='inactive'])[3]")
 
-        self.__product_count = (By.XPATH,"//table[@class='data-table']//tbody")
+        self.__product_count = (By.XPATH,"//table[@class='data-table']//tbody//tr")
 
         self.__product_name = (By.XPATH,"//table[@class='data-table']//tbody//tr/td[3]")
 
