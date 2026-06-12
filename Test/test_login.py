@@ -1,7 +1,7 @@
 import pytest
 from Actions.LoginActions import LoginActions
 from Utilities.excelReader import get_data
-from Configuration.configReader import ReadConfig
+from Utilities.configReader import ReadConfig
 login_data = get_data("TestData/TestData.xlsx", "Login")
 recovery_data = get_data("TestData/TestData.xlsx", "Recovery")
 
