@@ -40,7 +40,6 @@ class TestLogin:
 
         actions.click_login_link()
         actions.click_forgot_password()
-
         if email is None:
             email = ""
 

@@ -22,6 +22,11 @@ class CheckoutPage:
         self.__billContinue=(By.XPATH,"//div[@id='billing-buttons-container']//descendant::input")
         self.__shippingText=(By.XPATH,"//label[text()='Select a shipping address from your address book or enter a new address.']")
         self.__wrongEmail=(By.XPATH,"//span[@class='field-validation-error']/parent::div")
+        self.__guestCheckout=(By.XPATH,"//input[@value='Checkout as Guest']")
+        self.__checkoutText=(By.XPATH,"//div[@class='page-title']/h1")
+        self.__Regsiration=(By.XPATH,"//input[@class='button-1 register-button']")
+
+
     def get_exist_address(self):
         return self.__existAddress
 
@@ -72,3 +77,12 @@ class CheckoutPage:
 
     def get_wrong_email(self):
         return self.__wrongEmail
+    
+    def get_guest_checkout(self):
+        return self.__guestCheckout
+
+    def get_checkoutText(self):
+        return self.__checkoutText
+    
+    def get_registration(self):
+        return self.__Regsiration
