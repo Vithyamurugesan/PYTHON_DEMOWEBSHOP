@@ -25,6 +25,7 @@ class CheckoutPage:
         self.__guestCheckout=(By.XPATH,"//input[@value='Checkout as Guest']")
         self.__checkoutText=(By.XPATH,"//div[@class='page-title']/h1")
         self.__Regsiration=(By.XPATH,"//input[@class='button-1 register-button']")
+        self.__EmailRequiedText = (By.XPATH,"//span[@class='field-validation-error']")
 
 
     def get_exist_address(self):
@@ -86,3 +87,6 @@ class CheckoutPage:
     
     def get_registration(self):
         return self.__Regsiration
+    
+    def get_emailRequire(self):
+        return self.__EmailRequiedText

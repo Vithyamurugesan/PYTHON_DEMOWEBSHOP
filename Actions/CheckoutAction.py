@@ -33,6 +33,25 @@ class checkoutAction(BaseAction):
         self.send_keys(self.checkout.get_bill_fax(),Faxnumber)
         self.js_click(self.checkout.get_bill_continue())
 
+    def invalid_form_fill(self,Firstname,Lastname,Company,Country,City,Address1,Address2,\
+                  postalcode,Phonenumber,Faxnumber):
+        self.select_dropdown(self.checkout.get_exist_address(),"New Address")
+        self.clear(self.checkout.get_bill_first_name())
+        self.send_keys(self.checkout.get_bill_first_name(),Firstname)
+        self.clear(self.checkout.get_bill_last_name())
+        self.send_keys(self.checkout.get_bill_last_name(),Lastname)
+        self.clear(self.checkout.get_bill_email())
+        #self.send_keys(self.checkout.get_bill_email(),Email)
+        self.send_keys(self.checkout.get_bill_company(),Company)
+        self.select_dropdown(self.checkout.get_bill_country(),Country)
+        self.send_keys(self.checkout.get_bill_city(),City)
+        self.send_keys(self.checkout.get_bill_address1(),Address1)
+        self.send_keys(self.checkout.get_bill_address2(),Address2)
+        self.send_keys(self.checkout.get_bill_zip(),postalcode)
+        self.send_keys(self.checkout.get_bill_number(),Phonenumber)
+        self.send_keys(self.checkout.get_bill_fax(),Faxnumber)
+        self.js_click(self.checkout.get_bill_continue())
+
     def shippingText(self):
         return self.get_text(self.checkout.get_shipping_text())
     
@@ -45,6 +64,8 @@ class checkoutAction(BaseAction):
     def registrion_click(self):
         self.js_click(self.checkout.get_registration())
 
+    def email_require_Text(self):
+        return self.get_text(self.checkout.get_emailRequire())
 
 
 
