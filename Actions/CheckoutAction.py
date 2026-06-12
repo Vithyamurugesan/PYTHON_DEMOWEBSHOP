@@ -1,5 +1,3 @@
-
-
 import time
 
 from Actions.BaseAction import BaseAction
