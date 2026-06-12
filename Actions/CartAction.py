@@ -6,7 +6,7 @@ from selenium.webdriver.support import expected_conditions as EC
 from Actions.BaseAction import BaseAction
 from Pages.CartPage import CartPage
 from Utilities.excelReader import get_data
-from Configuration.configReader import ReadConfig
+from Utilities.configReader import ReadConfig
 
 
 class CartAction(BaseAction):

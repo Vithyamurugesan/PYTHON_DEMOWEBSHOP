@@ -1,6 +1,6 @@
 import pytest
 from selenium import webdriver
-from Configuration.configReader import ReadConfig
+from Utilities.configReader import ReadConfig
 import os
 from datetime import datetime
 import allure
