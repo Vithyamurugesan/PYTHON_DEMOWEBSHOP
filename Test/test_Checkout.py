@@ -6,7 +6,7 @@ from Actions.CheckoutAction import checkoutAction
 import pytest
 from Actions.LoginActions import LoginActions
 from Utilities.excelReader import get_data
-from Configuration.configReader import ReadConfig
+from Utilities.configReader import ReadConfig
 from Actions.CartAction import CartAction
 from Actions.RegisterAction import RegisterAction
 
