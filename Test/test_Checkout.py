@@ -48,7 +48,7 @@ class TestCheckout:
 
         assert register.get_success_message() == "Your registration completed"
 
-    #@pytest.mark.Jeeva
+   # @pytest.mark.Jeeva
     @pytest.mark.order(2)
     def test_checkout_withlogin(self):
 
@@ -70,7 +70,7 @@ class TestCheckout:
         act = checkout.checkout_Text()
         print(act)
 
-    #@pytest.mark.Jeeva
+   # @pytest.mark.Jeeva
     @pytest.mark.order(3)
     
     def test_checkout_withGuest(self):
@@ -91,7 +91,7 @@ class TestCheckout:
         print(act)
         assert act == exp
 
-    @pytest.mark.Jeeva
+    #@pytest.mark.Jeeva
     @pytest.mark.order(4)
     @pytest.mark.parametrize("Firstname,Lastname\
             ,Email,Company,Country,City,Address1,Address2,\
@@ -116,6 +116,7 @@ class TestCheckout:
         cart.click_checkout()
 
         checkout = checkoutAction(self.driver)
+        
         checkout.form_fill(Firstname,Lastname,Email,Company,\
                         Country,City,Address1,Address2,\
                   postalcode,Phonenumber,Faxnumber)
@@ -128,3 +129,38 @@ class TestCheckout:
         assert act == exp, "Shipping address text mismatch"
 
         time.sleep(10)
+
+    #@pytest.mark.Jeeva
+    @pytest.mark.order(5)
+    @pytest.mark.parametrize("Firstname,Lastname\
+            ,Company,Country,City,Address1,Address2,\
+            postalcode,Phonenumber,Faxnumber", get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\TestData.xlsx","Invalid billingForm"))
+    def test_Checkout_Invalid_fill_form(self,Firstname,Lastname,Company,Country,City,Address1,Address2,\
+                  postalcode,Phonenumber,Faxnumber):
+
+        actions = LoginActions(self.driver)
+
+        actions.click_login_link()
+        actions.enter_email(ReadConfig.get_email())
+        actions.enter_password(ReadConfig.get_password())
+        actions.click_login_button()
+
+        assert actions.get_user_account_name() is not None
+
+        cart = CartAction(self.driver)
+        cart.open_books_page()
+        cart.open_computing_book_page()
+        cart.add_to_cart()
+        cart.open_shopping_cart()
+        cart.click_checkout()
+
+        checkout = checkoutAction(self.driver)
+        checkout.invalid_form_fill(Firstname,Lastname,Company,\
+                        Country,City,Address1,Address2,\
+                  postalcode,Phonenumber,Faxnumber)
+
+        time.sleep(5)
+        act =checkout.email_require_Text()
+        exp="required."
+        assert exp in act
+        print("Email is required")
