@@ -4,10 +4,11 @@ import pytest
 from Utilities.CsvReader import CsvReader
 from Actions.RegisterAction import RegisterAction
 from Utilities.excelReader import get_data
+from Utilities.configReader import ReadConfig
 
 class TestRegistration:
 
-    def test_register_user(self,setup_and_teardown):
+    def test_register_user(self,setup_and_teardown: None):
 
         register = RegisterAction(self.driver)
         data = get_data("TestData/TestData.xlsx","Register")
@@ -31,7 +32,7 @@ class TestRegistration:
         assert register.get_success_message() == "Your registration completed"
 
     @pytest.mark.parametrize( "data",get_data("TestData/TestData.xlsx", "InvalidEmail"))
-    def test_invalid_email(self, setup_and_teardown, data):
+    def test_invalid_email(self, setup_and_teardown: None, data: Any):
         register = RegisterAction(self.driver)
 
         register.click_register_link()
@@ -48,8 +49,23 @@ class TestRegistration:
 
         register.click_register_button()
 
-        assert (
-        register.get_email_error()
-        ==
-        data[5]
-    )
+        assert (register.get_email_error()==data[5])
+
+    def test_empty_fields(self,setup_and_teardown):
+        register = RegisterAction(self.driver)
+
+        register.click_register_link()
+
+        register.enter_first_name(ReadConfig.get_first_name())
+        
+        register.enter_last_name(ReadConfig.get_last_name())
+        
+        register.enter_normal_email(ReadConfig.get_email())
+        
+        register.enter_password("")
+        
+        register.enter_confirm_password("")
+        
+        register.click_register_button()
+        
+        assert (register.get_password_error()==ReadConfig.get_password_required_error())

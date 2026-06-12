@@ -48,3 +48,15 @@ class ReadConfig:
 
     def get_invalid_qty_msg():
         return config.get("product detail info", "invalid_qty_msg")
+    
+    def get_first_name():
+        return config.get("empty_fields_test","first_name")
+    
+    def get_last_name():
+        return config.get("empty_fields_test","last_name")
+
+    def get_email():
+        return config.get("empty_fields_test","email")
+    
+    def get_password_required_error():
+        return config.get("empty_fields_test","password_required")
