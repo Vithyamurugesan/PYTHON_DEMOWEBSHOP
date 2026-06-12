@@ -1,3 +1,7 @@
+from atexit import register
+
+import pytest
+from Utilities.CsvReader import CsvReader
 from Actions.RegisterAction import RegisterAction
 from Utilities.excelReader import get_data
 
@@ -25,3 +29,27 @@ class TestRegistration:
         register.click_register_button()
 
         assert register.get_success_message() == "Your registration completed"
+
+    @pytest.mark.parametrize( "data",get_data("TestData/TestData.xlsx", "InvalidEmail"))
+    def test_invalid_email(self, setup_and_teardown, data):
+        register = RegisterAction(self.driver)
+
+        register.click_register_link()
+
+        register.enter_first_name(data[0])
+
+        register.enter_last_name(data[1])
+
+        register.enter_normal_email(data[2])
+
+        register.enter_password(str(data[3]))
+
+        register.enter_confirm_password(str(data[4]))
+
+        register.click_register_button()
+
+        assert (
+        register.get_email_error()
+        ==
+        data[5]
+    )

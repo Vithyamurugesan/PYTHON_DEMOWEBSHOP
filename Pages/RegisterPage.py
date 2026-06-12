@@ -34,6 +34,8 @@ class RegisterPage:
 
         self.__confirmPasswordError = ( By.XPATH,"//input[@id='ConfirmPassword']/following::span[@for='ConfirmPassword'][1]" )
 
+        self.__emailError = (By.XPATH, "//input[@id='Email']/following::span[@for='Email'][1]")
+
     def get_register_link(self):
         return self.__registerLink
 
@@ -78,3 +80,6 @@ class RegisterPage:
 
     def get_confirm_password_error(self):
         return self.__confirmPasswordError
+    
+    def get_email_error(self):
+        return self.__emailError
