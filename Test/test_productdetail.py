@@ -3,7 +3,7 @@ from Actions.ProductDetailAction import ProductDetailAction
 from Utilities.CsvReader import CsvReader
 from Utilities.configReader import ReadConfig
 
-PRODUCT_CSV = "TestData/productDetailData.csv"
+PRODUCT_CSV = "TestData/TestData.csv"
 
 
 @pytest.mark.usefixtures("setup_and_teardown")
