@@ -65,4 +65,5 @@ class RegisterPage:
 
     def get_password_error(self):
         return self.__passwordError
+    
 
