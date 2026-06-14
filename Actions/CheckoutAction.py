@@ -33,6 +33,9 @@ class checkoutAction(BaseAction):
         self.send_keys(self.checkout.get_bill_fax(),Faxnumber)
         self.js_click(self.checkout.get_bill_continue())
 
+    def click_the_bill_continue(self):
+        self.js_click(self.checkout.get_bill_continue())
+
     def invalid_form_fill(self,Firstname,Lastname,Company,Country,City,Address1,Address2,\
                   postalcode,Phonenumber,Faxnumber):
         self.select_dropdown(self.checkout.get_exist_address(),"New Address")
@@ -66,6 +69,17 @@ class checkoutAction(BaseAction):
 
     def email_require_Text(self):
         return self.get_text(self.checkout.get_emailRequire())
+    
+    def click_skipping_checkbox(self):
+        self.click(self.checkout.get_skipping_clickbox())
+
+    def click_skipping(self):
+        self.js_click(self.checkout.get_skipping_contnue())
+
+    def CocText(self):
+        return self.get_text(self.checkout.get_cocText())
+
+    
 
 
 
