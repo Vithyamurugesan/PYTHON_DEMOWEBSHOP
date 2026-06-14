@@ -33,6 +33,7 @@ class RegisterPage:
         self.__existingEmailError = (By.XPATH,"//div[contains(@class,'validation-summary-errors')]//li")
 
 
+
     def get_register_link(self):
         return self.__registerLink
 
