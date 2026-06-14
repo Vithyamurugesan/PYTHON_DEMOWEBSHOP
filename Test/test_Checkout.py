@@ -170,7 +170,7 @@ class TestCheckout:
         assert exp in act
         print("Email is required")
 
-    @pytest.mark.Jeeva
+    #@pytest.mark.Jeeva
     def test_click_in_store_pickup(self):
         actions = LoginActions(self.driver)
 
@@ -199,3 +199,4 @@ class TestCheckout:
         assert exp in act
         print("payment page is opened")
         time.sleep(10)
+    
