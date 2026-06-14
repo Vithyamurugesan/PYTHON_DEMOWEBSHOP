@@ -17,12 +17,6 @@ def setup_and_teardown(request):
     driver=webdriver.Chrome(options=options)
     driver.maximize_window()
     driver.get(ReadConfig.get_base_url())
-
-    driver.find_element(By.LINK_TEXT, "Log in").click()
-    driver.find_element(By.ID, "Email").send_keys(ReadConfig.get_email())
-    driver.find_element(By.ID, "Password").send_keys(ReadConfig.get_password())
-    driver.find_element(By.CSS_SELECTOR, "input.button-1.login-button").click()
-
     request.cls.driver = driver
 
     yield

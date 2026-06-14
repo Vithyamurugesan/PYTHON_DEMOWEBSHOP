@@ -61,3 +61,12 @@ class CsvReader:
                     ))
 
         return data
+    @staticmethod
+    def get_contact_data(file_path):
+        data = []
+        with open(file_path, newline="") as file:
+            reader = csv.DictReader(file)
+            for row in reader:
+                data.append(row)
+            
+        return data
