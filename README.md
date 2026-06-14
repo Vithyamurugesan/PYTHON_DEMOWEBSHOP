@@ -14,11 +14,11 @@ A scalable and maintainable UI automation framework built using **Python, Seleni
 
 ## Features
 
-- Cross-browser support (Chrome & Firefox)
+- Cross-browser support (Chrome)
 - Headless and Normal execution modes
 - Page Object Model (POM) design pattern
 - Centralized configuration management using `config.ini`
-- Automatic driver management with `webdriver-manager`
+- Automatic driver  with `webdriver`
 - Explicit and configurable wait strategies
 - Structured logging and debugging support
 - Pytest markers for selective test execution
@@ -139,15 +139,6 @@ pytest -v
 
 ```bash
 pytest tests/test_register.py -v
-```
-
-### Run Using Markers
-
-```bash
-pytest -m smoke
-pytest -m regression
-pytest -m sanity
-pytest -m "smoke and regression"
 ```
 
 ---
