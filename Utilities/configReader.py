@@ -60,3 +60,12 @@ class ReadConfig:
     
     def get_password_required_error():
         return config.get("empty_fields_test","password_required")
+
+    def get_compare_product():
+        return config.get("compare info", "compare_product")
+
+    def get_compare_product_two():
+        return config.get("compare info", "compare_product_two")
+
+    def get_empty_compare_msg():
+        return config.get("compare info", "empty_compare_msg")
