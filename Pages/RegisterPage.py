@@ -24,15 +24,11 @@ class RegisterPage:
 
         self.__existingEmailError = (By.XPATH,"//div[@class='validation-summary-errors']/descendant::li")
 
-        self.__firstNameError = (By.XPATH,"//input[@id='FirstName']/following::span[@for='FirstName'][1]")
-
-        self.__lastNameError = (By.XPATH,"//input[@id='LastName']/following::span[@for='LastName'][1]")
-
         self.__emailError = (By.XPATH,"//input[@id='Email']/following::span[@for='Email'][1]")
 
         self.__passwordError = ( By.XPATH,"//input[@id='Password']/following::span[@for='Password'][1]")
 
-        self.__confirmPasswordError = ( By.XPATH,"//input[@id='ConfirmPassword']/following::span[@for='ConfirmPassword'][1]" )
+        
 
     def get_register_link(self):
         return self.__registerLink
@@ -64,17 +60,10 @@ class RegisterPage:
     def get_existing_email_error(self):
         return self.__existingEmailError
 
-    def get_first_name_error(self):
-        return self.__firstNameError
-
-    def get_last_name_error(self):
-        return self.__lastNameError
-
     def get_email_error(self):
         return self.__emailError
 
     def get_password_error(self):
         return self.__passwordError
+    
 
-    def get_confirm_password_error(self):
-        return self.__confirmPasswordError

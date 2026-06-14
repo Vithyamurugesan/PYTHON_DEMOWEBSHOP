@@ -31,3 +31,7 @@ class DownloadAction(BaseAction):
             product_list.append(product.text)
 
         return product_list
+    def get_internal_error_message(self):
+        return self.get_text(
+        self.page.get_internal_error_message()
+    )
