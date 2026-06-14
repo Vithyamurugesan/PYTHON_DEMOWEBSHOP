@@ -8,13 +8,8 @@ from Utilities.configReader import ReadConfig
 
 class TestRegistration:
 
-<<<<<<< HEAD
-    def test_register_user(self,setup_and_teardown):
-#
-=======
     def test_register_user(self,setup_and_teardown: None):
 
->>>>>>> 69e003c538df7874743b0273829bd3abebfe0814
         register = RegisterAction(self.driver)
         data = get_data("TestData/TestData.xlsx","Register")
 
