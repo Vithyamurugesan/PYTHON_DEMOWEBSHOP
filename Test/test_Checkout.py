@@ -6,6 +6,7 @@ from Actions.CheckoutAction import checkoutAction
 import pytest
 from Actions.LoginActions import LoginActions
 from Utilities.excelReader import get_data
+from Utilities.CsvReader import CsvReader
 from Utilities.configReader import ReadConfig
 from Actions.CartAction import CartAction
 from Actions.RegisterAction import RegisterAction
@@ -127,14 +128,14 @@ class TestCheckout:
         exp = "Select a shipping address from your address book or enter a new address."
 
         assert act == exp, "Shipping address text mismatch"
-
+        
         time.sleep(10)
 
     #@pytest.mark.Jeeva
     @pytest.mark.order(5)
     @pytest.mark.parametrize("Firstname,Lastname\
             ,Company,Country,City,Address1,Address2,\
-            postalcode,Phonenumber,Faxnumber", get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\TestData.xlsx","Invalid billingForm"))
+            postalcode,Phonenumber,Faxnumber", CsvReader.get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\CheckoutTestData.csv"))
     def test_Checkout_Invalid_fill_form(self,Firstname,Lastname,Company,Country,City,Address1,Address2,\
                   postalcode,Phonenumber,Faxnumber):
 
@@ -155,6 +156,10 @@ class TestCheckout:
         cart.click_checkout()
 
         checkout = checkoutAction(self.driver)
+        print("Firstname =", Firstname)
+        print("Lastname =", Lastname)
+        print("Company =", Company)
+        print("Country =", Country)
         checkout.invalid_form_fill(Firstname,Lastname,Company,\
                         Country,City,Address1,Address2,\
                   postalcode,Phonenumber,Faxnumber)
@@ -164,3 +169,33 @@ class TestCheckout:
         exp="required."
         assert exp in act
         print("Email is required")
+
+    @pytest.mark.Jeeva
+    def test_click_in_store_pickup(self):
+        actions = LoginActions(self.driver)
+
+        actions.click_login_link()
+        actions.enter_email(ReadConfig.get_email())
+        actions.enter_password(ReadConfig.get_password())
+        actions.click_login_button()
+
+        assert actions.get_user_account_name() is not None
+
+        cart = CartAction(self.driver)
+        cart.open_books_page()
+        cart.open_computing_book_page()
+        cart.add_to_cart()
+        cart.open_shopping_cart()
+        cart.click_checkout()
+        
+        checkout = checkoutAction(self.driver)
+        checkout.click_the_bill_continue()
+     
+        checkout.click_skipping_checkbox()
+        checkout.click_skipping()
+        act=checkout.CocText()
+        print(act)
+        exp="Cash"
+        assert exp in act
+        print("payment page is opened")
+        time.sleep(10)

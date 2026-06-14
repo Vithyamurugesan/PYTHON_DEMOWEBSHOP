@@ -26,7 +26,9 @@ class CheckoutPage:
         self.__checkoutText=(By.XPATH,"//div[@class='page-title']/h1")
         self.__Regsiration=(By.XPATH,"//input[@class='button-1 register-button']")
         self.__EmailRequiedText = (By.XPATH,"//span[@class='field-validation-error']")
-
+        self.__shippingcheckbox=(By.XPATH,"//label[@for='PickUpInStore']/preceding-sibling::input")
+        self.__shippingContinue=(By.XPATH,"//div[@id='shipping-buttons-container']//descendant::input")
+        self.__coc=(By.XPATH,"//label[text()='Cash On Delivery (COD) (7.00)']")
 
     def get_exist_address(self):
         return self.__existAddress
@@ -90,3 +92,11 @@ class CheckoutPage:
     
     def get_emailRequire(self):
         return self.__EmailRequiedText
+    
+    def get_skipping_clickbox(self):
+        return self.__shippingcheckbox
+    
+    def get_skipping_contnue(self):
+        return self.__shippingContinue
+    def get_cocText(self):
+        return self.__coc
