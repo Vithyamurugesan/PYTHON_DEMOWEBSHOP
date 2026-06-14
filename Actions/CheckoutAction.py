@@ -1,4 +1,5 @@
 import time
+from webbrowser import get
 import pytest
 from Actions.BaseAction import BaseAction
 from Pages.CheckoutPage import CheckoutPage
@@ -78,7 +79,24 @@ class checkoutAction(BaseAction):
 
     def CocText(self):
         return self.get_text(self.checkout.get_cocText())
+    
+    def click_coc_Checkbox(self):
+        return self.js_click(self.checkout.get_Click_COC())
+    
+    def continue_payment(self):
+        self.click(self.checkout.get_payment_click())
 
+    def payment_COC_Text(self):
+        return self.get_text(self.checkout.get_cocpaymentText())
+    
+    def contine_of_COC(self):
+        self.js_click(self.checkout.get_continue_coc())
+
+    def get_continue_of_confom(self):
+        self.click(self.checkout.get_continue_ofconfom())
+
+    def get_Tank_Text(self):
+        return self.get_text(self.checkout.get_thankText())
     
 
 
