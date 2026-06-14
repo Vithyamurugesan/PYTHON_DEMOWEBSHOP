@@ -29,7 +29,7 @@ class SocialMediaAction(BaseAction):
         self.driver.close()
 
         self.driver.switch_to.window(parent_window)
-
+ 
         if media.lower() == "facebook":
             return "facebook.com" in url
 

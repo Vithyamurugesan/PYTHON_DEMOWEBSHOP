@@ -1,7 +1,7 @@
 import pytest
 from Actions.SocialMediaAction import SocialMediaAction
 
-
+@pytest.mark.Vetri
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestSocialMedia:
 
