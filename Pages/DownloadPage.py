@@ -11,6 +11,10 @@ class DownloadPage:
 
         self.__product_name = (By.XPATH,"//table[@class='data-table']//tbody//tr/td[3]")
 
+        self.__internal_error_message = (By.XPATH,"//p[contains(text(),\"We're sorry, an internal error occurred.\")]")
+
+    def get_internal_error_message(self):
+        return self.__internal_error_message
     def get_my_account_link(self):
         return self.__my_account_link
 

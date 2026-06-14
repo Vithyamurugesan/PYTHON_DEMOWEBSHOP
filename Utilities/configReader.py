@@ -55,7 +55,7 @@ class ReadConfig:
     def get_last_name():
         return config.get("empty_fields_test","last_name")
 
-    def get_email():
+    def get_email_register():
         return config.get("empty_fields_test","email")
     
     def get_password_required_error():
