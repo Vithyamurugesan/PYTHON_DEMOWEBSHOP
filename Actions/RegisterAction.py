@@ -42,3 +42,8 @@ class RegisterAction(BaseAction):
     def get_password_error(self):
         return self.get_text(self.registerPage.get_password_error())
     
+    def get_confirm_password_error(self):
+        return self.get_text(self.registerPage.get_confirm_password_error())
+    
+    def get_existing_email_error(self):
+        return self.get_text(self.registerPage.get_existing_email_error())
