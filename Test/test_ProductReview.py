@@ -1,21 +1,24 @@
 from selenium import webdriver
 import time
-from Actions import ProductReviewAction
-from Actions.CheckoutAction import checkoutAction
 import pytest
+
 from Actions.LoginActions import LoginActions
-from Utilities.excelReader import get_data
-from Utilities.CsvReader import CsvReader
-from Utilities.configReader import ReadConfig
 from Actions.CartAction import CartAction
-from Actions.RegisterAction import RegisterAction
 from Actions.ProductReviewAction import ProductreviewAction
+from Utilities.configReader import ReadConfig
+from Utilities.logCreator import get_logger
 
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestProductReview:
 
+    log = get_logger()
+
+    @pytest.mark.Jeeva
     def test_productReview_with_login(self):
+
+        self.log.info("Product Review Test With Login Started")
+
         actions = LoginActions(self.driver)
 
         actions.click_login_link()
@@ -24,7 +27,7 @@ class TestProductReview:
         actions.click_login_button()
 
         assert actions.get_user_account_name() is not None
-
+        self.log.info("Login Successful")
 
         cart = CartAction(self.driver)
         cart.open_books_page()
@@ -32,33 +35,46 @@ class TestProductReview:
 
         review = ProductreviewAction(self.driver)
         review.Review_click()
-        act =review.review_Page()
+
+        act = review.review_Page()
         assert "Product reviews" in act
-        print("Product reviews is Display")
+        self.log.info("Product Review Page Displayed")
+
         review.review_Title()
         review.review_Con()
         review.review_submit()
-        act=review.review_Display()
-        
-        assert "review is successfully"in act
+
+        act = review.review_Display()
+        assert "review is successfully" in act
+        self.log.info("Product Review Added Successfully")
+
         print("Product review is successfully added.")
+        self.log.info("Product Review Test With Login Passed")
+
         time.sleep(5)
 
     @pytest.mark.Jeeva
     def test_productReview_without_login(self):
-        
+
+        self.log.info("Product Review Test Without Login Started")
+
         cart = CartAction(self.driver)
         cart.open_books_page()
         cart.open_computing_book_page()
 
         review = ProductreviewAction(self.driver)
         review.Review_click()
-        act =review.review_Page()
+
+        act = review.review_Page()
         assert "Product reviews" in act
         print("Product reviews is Display")
+        self.log.info("Product Review Page Displayed")
 
-        act =review.review_failedText()
+        act = review.review_failedText()
 
-        assert "Only registered users can write reviews"==act
+        assert "Only registered users can write reviews" == act
         print("Only registered users can write reviews")
+        self.log.info("Review Restriction Message Verified")
+
+        self.log.info("Product Review Test Without Login Passed")
         time.sleep(5)
