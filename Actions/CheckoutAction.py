@@ -1,4 +1,5 @@
 import time
+from webbrowser import get
 import pytest
 from Actions.BaseAction import BaseAction
 from Pages.CheckoutPage import CheckoutPage
@@ -31,6 +32,9 @@ class checkoutAction(BaseAction):
         self.send_keys(self.checkout.get_bill_zip(),postalcode)
         self.send_keys(self.checkout.get_bill_number(),Phonenumber)
         self.send_keys(self.checkout.get_bill_fax(),Faxnumber)
+        self.js_click(self.checkout.get_bill_continue())
+
+    def click_the_bill_continue(self):
         self.js_click(self.checkout.get_bill_continue())
 
     def invalid_form_fill(self,Firstname,Lastname,Company,Country,City,Address1,Address2,\
@@ -66,6 +70,34 @@ class checkoutAction(BaseAction):
 
     def email_require_Text(self):
         return self.get_text(self.checkout.get_emailRequire())
+    
+    def click_skipping_checkbox(self):
+        self.click(self.checkout.get_skipping_clickbox())
+
+    def click_skipping(self):
+        self.js_click(self.checkout.get_skipping_contnue())
+
+    def CocText(self):
+        return self.get_text(self.checkout.get_cocText())
+    
+    def click_coc_Checkbox(self):
+        return self.js_click(self.checkout.get_Click_COC())
+    
+    def continue_payment(self):
+        self.click(self.checkout.get_payment_click())
+
+    def payment_COC_Text(self):
+        return self.get_text(self.checkout.get_cocpaymentText())
+    
+    def contine_of_COC(self):
+        self.js_click(self.checkout.get_continue_coc())
+
+    def get_continue_of_confom(self):
+        self.click(self.checkout.get_continue_ofconfom())
+
+    def get_Tank_Text(self):
+        return self.get_text(self.checkout.get_thankText())
+    
 
 
 

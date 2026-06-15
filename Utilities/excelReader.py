@@ -16,7 +16,10 @@ def get_data(path, sheet_name):
 
         for c in range(1, sheet.max_column + 1):
             row_list.append(sheet.cell(r, c).value)
-
+        
+        if all(cell is None for cell in row_list):
+            continue
+        
         final_list.append(row_list)
 
     return final_list
