@@ -107,16 +107,11 @@ class TestCheckout:
     @pytest.mark.Jeeva
     @pytest.mark.order(4)
     @pytest.mark.parametrize(
-        "Firstname,Lastname,Email,Company,Country,City,Address1,Address2,postalcode,Phonenumber,Faxnumber",
-        get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\TestData.xlsx", "billingForm")
-    )
-    def test_Checkout_fill_form(
-            self,
-            Firstname, Lastname, Email, Company,
-            Country, City, Address1, Address2,
-            postalcode, Phonenumber, Faxnumber):
-
-        self.log.info("Billing Address Form Test Started")
+    "Firstname,Lastname,Email,Company,Country,City,Address1,Address2,postalcode,Phonenumber,Faxnumber",
+    get_data("TestData/TestData.xlsx", "billingForm")
+)
+    def test_Checkout_fill_form(self,Firstname,Lastname,Email,Company,Country,City,Address1,Address2,\
+                  postalcode,Phonenumber,Faxnumber):
 
         actions = LoginActions(self.driver)
 
@@ -156,16 +151,11 @@ class TestCheckout:
     @pytest.mark.Jeeva
     @pytest.mark.order(5)
     @pytest.mark.parametrize(
-        "Firstname,Lastname,Company,Country,City,Address1,Address2,postalcode,Phonenumber,Faxnumber",
-        CsvReader.get_data(r"D:\PYTHON_DEMOWEBSHOP\TestData\CheckoutTestData.csv")
-    )
-    def test_Checkout_Invalid_fill_form(
-            self,
-            Firstname, Lastname, Company,
-            Country, City, Address1, Address2,
-            postalcode, Phonenumber, Faxnumber):
-
-        self.log.info("Invalid Billing Address Form Test Started")
+    "Firstname,Lastname,Company,Country,City,Address1,Address2,postalcode,Phonenumber,Faxnumber",
+    CsvReader.get_data("TestData/CheckoutTestData.csv")
+)
+    def test_Checkout_Invalid_fill_form(self,Firstname,Lastname,Company,Country,City,Address1,Address2,\
+                  postalcode,Phonenumber,Faxnumber):
 
         actions = LoginActions(self.driver)
 
