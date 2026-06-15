@@ -1,16 +1,20 @@
 import pytest
 from selenium.webdriver.common.by import By
-
+from Actions.LoginActions import LoginActions
 from Actions.DownloadAction import DownloadAction
-
+from Utilities.configReader import ReadConfig
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestDownload:
 
     def test_downloadable_products_registered_user(self):
 
+        login = LoginActions(self.driver)
         download = DownloadAction(self.driver)
-
+        login.click_login_link()
+        login.enter_email(ReadConfig.get_email())
+        login.enter_password(ReadConfig.get_password())
+        login.click_login_button()
         download.click_my_account()
 
         try:
@@ -36,9 +40,6 @@ class TestDownload:
             assert error_msg == "We're sorry, an internal error occurred."
 
     def test_unregistered_user_redirected_to_login(self):
-
-        # Logout because conftest.py already logs in
-        self.driver.find_element(By.LINK_TEXT, "Log out").click()
 
         download = DownloadAction(self.driver)
 
