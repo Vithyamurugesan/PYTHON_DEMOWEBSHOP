@@ -12,7 +12,7 @@ class TestCompare:
 
     # @AddSingleCompareProduct
     def test_add_single_product_to_compare(self):
-        compare = CompareAction(self.driver)
+        compare = CompareAction(self.driver);
         compare.open_jewelry_page()
         compare.open_product(ReadConfig.get_compare_product())
         compare.click_add_to_compare()
