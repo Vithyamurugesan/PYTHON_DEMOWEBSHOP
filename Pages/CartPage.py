@@ -22,6 +22,8 @@ class CartPage:
         self.__quantityBox = (By.CSS_SELECTOR, "input.qty-input")
         self.__updateCartButton = (By.XPATH, "//input[@name='updatecart']")
         self.__removeCheckBox = (By.XPATH, "//input[@name='removefromcart']")
+        self.__addToCartNotification = (By.CSS_SELECTOR,".bar-notification.success")
+        self.__cartProduct = (By.XPATH,"//td[@class='product']//a[normalize-space()='Computing and Internet']")
 
     def get_books(self):
         return self.__books
@@ -35,8 +37,14 @@ class CartPage:
     def get_add_to_cart_button(self):
         return self.__addToCartButton
 
+    def get_add_to_cart_notification(self):
+        return self.__addToCartNotification
+
     def get_cart_table(self):
         return self.__cartTable
+
+    def get_cart_product(self):
+        return self.__cartProduct
 
     def get_product_list(self):
         return self.__productList
@@ -46,33 +54,33 @@ class CartPage:
 
     def get_empty_cart_msg(self):
         return self.__emptyCartMsg
-    
+
     def get_checkbox(self):
         return self.__checkBox
-    
+
     def get_click_checkout(self):
         return self.__checkutBTN
 
     def get_coupon_box(self):
         return self.__couponBox
- 
+
     def get_coupon_button(self):
         return self.__couponButton
- 
+
     def get_gift_card_box(self):
         return self.__giftCardBox
- 
+
     def get_gift_card_button(self):
         return self.__giftCardButton
- 
+
     def get_message(self):
         return self.__message
- 
+
     def get_quantity_box(self):
         return self.__quantityBox
- 
+
     def get_update_cart_button(self):
         return self.__updateCartButton
- 
+
     def get_remove_check_box(self):
         return self.__removeCheckBox
