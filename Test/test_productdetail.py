@@ -1,4 +1,5 @@
 import pytest
+from selenium.webdriver.remote.webdriver import WebDriver
 from Actions.ProductDetailAction import ProductDetailAction
 from Utilities.CsvReader import CsvReader
 from Utilities.configReader import ReadConfig
@@ -8,8 +9,9 @@ PRODUCT_CSV = "TestData/ProductDetailTestData.csv"
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestProductDetail:
+    driver: WebDriver
 
-    @pytest.mark.parametrize("row", CsvReader.get_data(PRODUCT_CSV))
+    @pytest.mark.parametrize("row", CsvReader.get_data(PRODUCT_CSV)) # type: ignore
     def test_product_details_page(self, row):
         product_detail = ProductDetailAction(self.driver)
         product_detail.open_category(row["category"])
@@ -20,18 +22,18 @@ class TestProductDetail:
         assert product_detail.is_product_description_displayed(),"Product description is not displayed"
         assert product_detail.is_product_image_displayed(),"Product image is not displayed"
 
-    @pytest.mark.parametrize("row", CsvReader.get_data(PRODUCT_CSV))
+    @pytest.mark.parametrize("row", CsvReader.get_data(PRODUCT_CSV)) # type: ignore
     def test_product_availability(self, row):
         product_detail = ProductDetailAction(self.driver)
         product_detail.open_category(row["category"])
         product_detail.select_product(row["product"])
-        assert product_detail.get_availability_label() == ReadConfig.get_availability_label(), \
+        assert product_detail.get_availability_label()==ReadConfig.get_availability_label(), \
             "Availability label mismatch"
-        assert product_detail.get_availability_value() == row["availability"], \
+        assert product_detail.get_availability_value()==row["availability"], \
             f"Expected '{row['availability']}' but got '{product_detail.get_availability_value()}'"
 
 
-    @pytest.mark.parametrize("row", CsvReader.get_data(PRODUCT_CSV))
+    @pytest.mark.parametrize("row", CsvReader.get_data(PRODUCT_CSV)) # type: ignore
     def test_invalid_quantity_validation(self, row):
         if not row["qty"]:
             pytest.skip("No quantity data for this row")

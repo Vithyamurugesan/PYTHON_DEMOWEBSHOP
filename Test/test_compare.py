@@ -2,6 +2,7 @@ import pytest
 from Actions.CompareAction import CompareAction
 from Utilities.excelReader import get_data
 from Utilities.configReader import ReadConfig
+from selenium.webdriver.remote.webdriver import WebDriver
 
 COMPARE_EXCEL = "TestData/compareProductsData.xlsx"
 COMPARE_SHEET = "CompareProducts"
@@ -9,6 +10,7 @@ COMPARE_SHEET = "CompareProducts"
 
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestCompare:
+    driver: WebDriver
 
     # @AddSingleCompareProduct
     def test_add_single_product_to_compare(self):
