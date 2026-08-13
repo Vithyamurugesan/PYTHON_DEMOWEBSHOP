@@ -4,16 +4,16 @@ from selenium.webdriver.common.by import By
 class ProductDetailPage:
 
     def __init__(self):
-        self.__category_link        = lambda cat: (By.LINK_TEXT, cat)
-        self.__product_link         = lambda name: (By.LINK_TEXT, name)
-        self.__product_name         = (By.XPATH, "//div[@class='product-name']/h1")
-        self.__product_price        = (By.XPATH, "//div[@class='product-price']//span")
-        self.__product_description  = (By.XPATH, "//div[@class='full-description']")
-        self.__product_image        = (By.XPATH, "//div[@class='picture']//img")
-        self.__availability_label   = (By.XPATH, "//span[@class='label']")
-        self.__availability_value   = (By.XPATH, "//span[@class='value']")
-        self.__quantity_box         = (By.CSS_SELECTOR, "input.qty-input")
-        self.__add_to_cart_button   = (By.XPATH, "//input[@value='Add to cart']")
+        self.__category_link = lambda cat: (By.LINK_TEXT, cat)
+        self.__product_link = lambda name: (By.LINK_TEXT, name)
+        self.__product_name = (By.XPATH, "//div[@class='product-name']/h1")
+        self.__product_price = (By.XPATH, "//div[@class='product-price']//span")
+        self.__product_description = (By.XPATH, "//div[@class='full-description']")
+        self.__product_image= (By.XPATH, "//div[@class='picture']//img")
+        self.__availability_label = (By.XPATH, "//span[@class='label']")
+        self.__availability_value = (By.XPATH, "//span[@class='value']")
+        self.__quantity_box = (By.CSS_SELECTOR, "input.qty-input")
+        self.__add_to_cart_button = (By.XPATH, "//input[@value='Add to cart']")
         self.__notification_message = (By.CSS_SELECTOR, ".bar-notification")
 
     def get_category_link(self, category):

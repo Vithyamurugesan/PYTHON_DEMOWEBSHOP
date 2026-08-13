@@ -27,9 +27,9 @@ class TestProductDetail:
         product_detail = ProductDetailAction(self.driver)
         product_detail.open_category(row["category"])
         product_detail.select_product(row["product"])
-        assert product_detail.get_availability_label() == ReadConfig.get_availability_label(), \
+        assert product_detail.get_availability_label()==ReadConfig.get_availability_label(), \
             "Availability label mismatch"
-        assert product_detail.get_availability_value() == row["availability"], \
+        assert product_detail.get_availability_value()==row["availability"], \
             f"Expected '{row['availability']}' but got '{product_detail.get_availability_value()}'"
 
 

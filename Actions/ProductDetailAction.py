@@ -1,7 +1,6 @@
 from Actions.BaseAction import BaseAction
 from Pages.ProductDetailPage import ProductDetailPage
 
-
 class ProductDetailAction(BaseAction):
 
     def __init__(self, driver):
