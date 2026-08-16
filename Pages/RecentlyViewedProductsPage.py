@@ -1,6 +1,4 @@
 from selenium.webdriver.common.by import By
-
-
 class RecentlyViewedProductsPage:
 
     def __init__(self):

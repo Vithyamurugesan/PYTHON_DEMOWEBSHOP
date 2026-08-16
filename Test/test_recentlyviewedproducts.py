@@ -4,7 +4,6 @@ from Actions.RecentlyViewedProductsAction import RecentlyViewedProductsAction
 
 RECENTLY_VIEWED_CSV = "TestData/RecentlyViewedProductsData.csv"
 
-
 @pytest.mark.usefixtures("setup_and_teardown")
 class TestRecentlyViewedProducts:
     driver: WebDriver

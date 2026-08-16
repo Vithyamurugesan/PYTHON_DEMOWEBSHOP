@@ -3,7 +3,6 @@ from Pages.RecentlyViewedProductsPage import RecentlyViewedProductsPage
 from Utilities.CsvReader import CsvReader
 from Utilities.configReader import ReadConfig
 
-
 class RecentlyViewedProductsAction(BaseAction):
 
     def __init__(self, driver):
