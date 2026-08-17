@@ -15,7 +15,7 @@ def setup_and_teardown(request):
     options.add_argument("--window-size=1920,1080")
 
     driver=webdriver.Chrome(options=options)
-    driver.maximize_window()
+
     driver.get(ReadConfig.get_base_url())
     request.cls.driver = driver
 
