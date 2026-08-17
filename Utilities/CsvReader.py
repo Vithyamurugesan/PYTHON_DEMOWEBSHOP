@@ -95,3 +95,19 @@ class CsvReader:
                 data.append(row)
 
         return data
+
+    @staticmethod
+    def get_recently_viewed_data(file_path):
+        data = []
+        with open(
+            CsvReader._resolve_path(file_path),
+            newline="",
+            encoding="utf-8"
+        ) as file:
+
+            reader = csv.DictReader(file)
+
+            for row in reader:
+                data.append(row)
+
+        return data

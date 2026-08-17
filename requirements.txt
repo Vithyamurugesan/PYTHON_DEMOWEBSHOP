@@ -1,6 +1,6 @@
-pytest
+pytest==8.4.2
 pytest-xdist
-pytest-html
+pytest-html==4.1.1
 selenium
 webdriver-manager
 allure-pytest
