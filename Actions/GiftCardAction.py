@@ -6,6 +6,7 @@ class GiftCardAction(BaseAction):
 
     def __init__(self, driver):
 
+
         super().__init__(driver)
 
         self.page = GiftCardPage()

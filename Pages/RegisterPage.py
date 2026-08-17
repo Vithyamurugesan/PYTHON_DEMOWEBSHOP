@@ -72,4 +72,5 @@ class RegisterPage:
     
     def get_confirm_password_error(self):
         return self.__confirmPasswordError
+    
 

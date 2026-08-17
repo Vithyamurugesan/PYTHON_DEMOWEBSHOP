@@ -14,6 +14,7 @@ class GiftCardPage:
             By.XPATH,
             "//a[text()='$5 Virtual Gift Card']"
         )
+        
 
         self.__recipient_name = (
             By.XPATH,

@@ -47,4 +47,5 @@ class RegisterAction(BaseAction):
     
     def get_existing_email_error(self):
         return self.get_text(self.registerPage.get_existing_email_error())
+
     

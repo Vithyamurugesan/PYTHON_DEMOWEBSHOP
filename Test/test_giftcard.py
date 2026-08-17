@@ -12,6 +12,7 @@ class TestGiftCard:
 
         gift = GiftCardAction(self.driver)
 
+
         data = get_data(
             "TestData/TestData.xlsx",
             "GiftCard"
