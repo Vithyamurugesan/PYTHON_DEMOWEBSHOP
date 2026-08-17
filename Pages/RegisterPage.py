@@ -22,7 +22,7 @@ class RegisterPage:
 
         self.__registrationSuccessMessage = (By.XPATH,"//div[@class='result']")
 
-        self.__existingEmailError = (By.XPATH,"//div[@class='validation-summary-errors']/descendant::li")
+        self.__existingEmailError = (By.XPATH,"//div[contains(@class,'validation-summary-errors')]//li")
 
         self.__emailError = (By.XPATH,"//input[@id='Email']/following::span[@for='Email'][1]")
 
@@ -30,7 +30,7 @@ class RegisterPage:
 
         self.__confirmPasswordError = (By.XPATH,"//span[contains(@class,'field-validation-error')]")
 
-        self.__existingEmailError = (By.XPATH,"//div[contains(@class,'validation-summary-errors')]//li")
+      
 
 
 
@@ -72,7 +72,4 @@ class RegisterPage:
     
     def get_confirm_password_error(self):
         return self.__confirmPasswordError
-
-    def get_existing_email_error(self):
-        return self.__existingEmailError
 
