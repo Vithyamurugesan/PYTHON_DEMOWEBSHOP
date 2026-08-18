@@ -6,7 +6,6 @@ class GiftCardAction(BaseAction):
 
     def __init__(self, driver):
 
-
         super().__init__(driver)
 
         self.page = GiftCardPage()
@@ -43,6 +42,7 @@ class GiftCardAction(BaseAction):
             card
         )
 
+   
     def enter_recipient_name(self, name):
 
         element = self.find(
@@ -50,9 +50,9 @@ class GiftCardAction(BaseAction):
         )
 
         element.clear()
-
         element.send_keys(name)
 
+    
     def enter_recipient_email(self, email):
 
         element = self.find(
@@ -60,7 +60,6 @@ class GiftCardAction(BaseAction):
         )
 
         element.clear()
-
         element.send_keys(email)
 
     def enter_sender_name(self, sender):
@@ -70,9 +69,19 @@ class GiftCardAction(BaseAction):
         )
 
         element.clear()
-
         element.send_keys(sender)
 
+   
+    def enter_sender_email(self, email):
+
+        element = self.find(
+            self.page.get_sender_email()
+        )
+
+        element.clear()
+        element.send_keys(email)
+
+ 
     def click_add_to_cart(self):
 
         button = self.find(
@@ -89,26 +98,40 @@ class GiftCardAction(BaseAction):
             button
         )
 
-    def click_shopping_cart(self):
+    def get_success_message(self):
 
+        return self.get_text(
+            self.page.get_success_message()
+        )
+    def get_validation_message(self):
+        return self.get_text(
+            self.page.get_validation_summary()
+        )
+    def click_shopping_cart(self):
         cart = self.find(
             self.page.get_shopping_cart()
-        )
-
+            )
+        self.driver.execute_script(
+            "arguments[0].scrollIntoView({block:'center'});",
+            cart
+            )
         self.driver.execute_script(
             "arguments[0].click();",
             cart
-        )
+            )
+        self.wait.until(
+            lambda driver: "/cart" in driver.current_url.lower()
+            )
+        def update_quantity(self, quantity):
+            qty = self.find(
+                self.page.get_quantity()
+                )
+            self.driver.execute_script(
+                "arguments[0].scrollIntoView({block:'center'});",qty
+                )
+            qty.clear()
+            qty.send_keys(str(quantity))
 
-    def update_quantity(self, quantity):
-
-        qty = self.find(
-            self.page.get_quantity()
-        )
-
-        qty.clear()
-
-        qty.send_keys(str(quantity))
 
     def click_update_cart(self):
 
@@ -117,10 +140,16 @@ class GiftCardAction(BaseAction):
         )
 
         self.driver.execute_script(
+            "arguments[0].scrollIntoView({block:'center'});",
+            button
+        )
+
+        self.driver.execute_script(
             "arguments[0].click();",
             button
         )
 
+ 
     def get_quantity_value(self):
 
         return self.find(
