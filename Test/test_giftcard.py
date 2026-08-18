@@ -6,12 +6,12 @@ from Utilities.excelReader import get_data
 
 class TestGiftCard:
 
+  
     def test_valid_gift_card_purchase(
             self,
             setup_and_teardown):
 
         gift = GiftCardAction(self.driver)
-
 
         data = get_data(
             "TestData/TestData.xlsx",
@@ -22,20 +22,24 @@ class TestGiftCard:
 
         gift.click_gift_cards_menu()
 
+       
         gift.select_virtual_gift_card()
 
+        
         gift.enter_recipient_name(row[0])
-
         gift.enter_recipient_email(row[1])
 
+       
         gift.enter_sender_name(row[2])
+        gift.enter_sender_email(row[3])
 
+        
         gift.click_add_to_cart()
 
+        
         assert (
             "The product has been added"
-            in
-            gift.get_success_message()
+            in gift.get_success_message()
         )
 
     @pytest.mark.parametrize(
@@ -52,23 +56,28 @@ class TestGiftCard:
 
         gift = GiftCardAction(self.driver)
 
+        
         gift.click_gift_cards_menu()
 
+        
         gift.select_virtual_gift_card()
 
+        
         gift.enter_recipient_name(data[0])
-
         gift.enter_recipient_email(data[1])
 
+        
         gift.enter_sender_name(data[2])
+        gift.enter_sender_email(data[3])
 
         gift.click_add_to_cart()
 
+  
         assert (
-            gift.get_recipient_email_error()
-            ==
-            data[3]
+            data[4]
+            in gift.get_validation_message()
         )
+
 
     def test_quantity_update(
             self,
@@ -85,26 +94,31 @@ class TestGiftCard:
 
         gift.click_gift_cards_menu()
 
+        
         gift.select_virtual_gift_card()
 
         gift.enter_recipient_name(row[0])
-
         gift.enter_recipient_email(row[1])
 
         gift.enter_sender_name(row[2])
+        gift.enter_sender_email(row[3])
 
+      
         gift.click_add_to_cart()
 
+        
         gift.click_shopping_cart()
 
+      
         gift.update_quantity(
-            str(row[3])
+            str(row[4])
         )
 
         gift.click_update_cart()
 
+        
         assert (
             gift.get_quantity_value()
             ==
-            str(row[3])
+            str(row[4])
         )

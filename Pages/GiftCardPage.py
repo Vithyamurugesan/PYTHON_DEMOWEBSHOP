@@ -5,57 +5,66 @@ class GiftCardPage:
 
     def __init__(self):
 
+
         self.__gift_cards_menu = (
             By.XPATH,
             "//a[contains(text(),'Gift Cards')]"
         )
 
+    
         self.__virtual_gift_card = (
             By.XPATH,
             "//a[text()='$5 Virtual Gift Card']"
         )
-        
 
+   
         self.__recipient_name = (
-            By.XPATH,
-            "//input[@id='giftcard_1_RecipientName']"
+            By.ID,
+            "giftcard_1_RecipientName"
         )
 
+       
         self.__recipient_email = (
-            By.XPATH,
-            "//input[@id='giftcard_1_RecipientEmail']"
+            By.ID,
+            "giftcard_1_RecipientEmail"
         )
 
+ 
         self.__sender_name = (
-            By.XPATH,
-            "//input[@id='giftcard_1_SenderName']"
+            By.ID,
+            "giftcard_1_SenderName"
         )
 
+    
+        self.__sender_email = (
+            By.ID,
+            "giftcard_1_SenderEmail"
+        )
+
+       
         self.__add_to_cart = (
             By.XPATH,
             "//input[contains(@id,'add-to-cart-button')]"
         )
 
+   
         self.__success_message = (
-            By.XPATH,
-            "//p[contains(@class,'content')]"
+            By.CSS_SELECTOR,
+            ".bar-notification.success"
         )
 
-        self.__recipient_email_error = (
-            By.XPATH,
-            "//span[@for='giftcard_1_RecipientEmail']"
-        )
+      
+        self.__validation_summary = (By.CSS_SELECTOR,".bar-notification.error")
 
+        
         self.__shopping_cart = (
             By.XPATH,
             "//span[text()='Shopping cart']/parent::a"
         )
 
-        self.__quantity = (
-            By.XPATH,
-            "//input[contains(@class,'qty-input')]"
-        )
+        self.__quantity = (By.XPATH,"//input[starts-with(@name,'itemquantity') and contains(@class,'qty-input')]")
 
+     
         self.__update_cart = (
             By.XPATH,
             "//input[@name='updatecart']"
@@ -76,14 +85,17 @@ class GiftCardPage:
     def get_sender_name(self):
         return self.__sender_name
 
+    def get_sender_email(self):
+        return self.__sender_email
+
     def get_add_to_cart(self):
         return self.__add_to_cart
 
     def get_success_message(self):
         return self.__success_message
 
-    def get_recipient_email_error(self):
-        return self.__recipient_email_error
+    def get_validation_summary(self):
+        return self.__validation_summary
 
     def get_shopping_cart(self):
         return self.__shopping_cart
